@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using OfficeSolutions.SharePoint;
+using Newtonsoft.Json;
 
 namespace SPXamarin2
 {
@@ -110,9 +111,8 @@ namespace SPXamarin2
             client.DefaultRequestHeaders.Accept.Add(mediaType);
             try
             {
-                var result = await client.GetStringAsync("https://classsolutions.sharepoint.com/sites/Vinicius/_api/web/lists/GetByTitle('TasksByAndroid')/items");
-                var data = JsonConvert.DeserializeObject<OfficeSolutions.SharePoint.Model.ListItemModels>(result);
-                ListAdapter = new ListItemAdapter(this, data.D.Results);
+                var result = await client.GetStringAsync("https://classsolutions.sharepoint.com/sites/Vinicius/_api/web/lists/GetByTitle('Clientes')/items");
+                var data = JsonConvert.DeserializeObject<Data>(result);
             }
 
             catch (Exception ex)
