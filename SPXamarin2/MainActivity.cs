@@ -23,9 +23,7 @@ namespace SPXamarin2
             // Get our button from the layout resource,
             // and attach an event to it
             Button button = FindViewById<Button>(Resource.Id.MyButton);
-
-
-
+            
             button.Click += Button_Click;
         }
 
